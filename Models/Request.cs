@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using WarehouseAccounting.Model.Enum;
+using Warehouse.Model.Enum;
 
-namespace WarehouseAccounting.Model
+
+namespace Warehouse.Model
 {
-    public class Warehouse
+    public class Request
     {
         /// <summary>
         /// ID. Auto increment
@@ -36,25 +37,32 @@ namespace WarehouseAccounting.Model
         public float Size { get; set; }
 
         /// <summary>
-        /// Date of arrival
+        /// quantity of rollers. Whole number
         /// </summary>
         [Required]
-        [JsonPropertyName("date")]
-        public DateOnly Date { get; set; }
+        [JsonPropertyName("count")]
+        public int Count { get; set; }
 
         /// <summary>
-        /// vendor
+        /// Data order
         /// </summary>
         [Required]
-        [JsonPropertyName("vendor")]
-        public string Vendor { get; set; }
+        [JsonPropertyName("dateOrder")]
+        public DateOnly DateOrder { get; set; }
 
         /// <summary>
-        /// status: on warehouse or not
+        /// the person who made the order
+        /// </summary>
+        [Required]
+        [JsonPropertyName("managerOrder")]
+        public string ManagerOrder { get; set; }
+
+        /// <summary>
+        /// order status: ordered, found, purchased, on the way, arrived, archived
         /// </summary>
         [Required]
         [JsonPropertyName("status")]
-        public StatusWarehouse StatusWarehouse { get; set; }
+        public Status Status { get; set; }
 
         /// <summary>
         /// Data change status
@@ -62,5 +70,7 @@ namespace WarehouseAccounting.Model
         [Required]
         [JsonPropertyName("dateStatus")]
         public DateOnly DateStatus { get; set; }
+
+
     }
 }

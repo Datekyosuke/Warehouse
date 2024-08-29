@@ -1,4 +1,4 @@
-﻿namespace WarehouseAccounting.Model.Enum
+﻿namespace Warehouse.Model.Enum
 {
     public enum StatusWarehouse
     {

@@ -1,7 +1,8 @@
 ﻿
 
-
 using Microsoft.EntityFrameworkCore;
+using Warehouse.Model;
+
 
 namespace Warehouse.AplicationContext
 {
@@ -10,7 +11,10 @@ namespace Warehouse.AplicationContext
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
         {
-            Database.EnsureCreated();   // создаем базу данных при первом обращении
+            Database.EnsureCreated();
         }
+
+        public DbSet<Request> Requests { get; set; }
+        public DbSet<Storage> Storages { get; set; }
     }
 }
