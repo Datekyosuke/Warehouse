@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Warehouse.AplicationContext;
+using Warehouse.Interfaces;
 using Warehouse.Model;
 
 namespace Warehouse.Repository
 {
-    public class RequestRepository
+    public class RequestReposytory : IRequestRepository
     {
         private readonly ApplicationContext _context;
 
-        public RequestRepository(ApplicationContext context)
+        public RequestReposytory(ApplicationContext context)
         {
             _context = context;
         }

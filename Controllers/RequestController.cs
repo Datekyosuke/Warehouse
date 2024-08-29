@@ -11,14 +11,13 @@ namespace CeilingCalc.Controllers
     /// </summary>
     [Route("/api/RequestController")]
     [ApiController]
-    [Authorize]
     public class RequestController : Controller
     {
 
-        private IRequstRepository _requestRepository;
+        private IRequestRepository _requestRepository;
 
 
-        public RequestController(IRequstRepository requstRepositoryr)
+        public RequestController(IRequestRepository requstRepositoryr)
         {
             _requestRepository = requstRepositoryr;
 

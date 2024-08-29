@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Warehouse.AplicationContext;
+using Warehouse.Interfaces;
+using Warehouse.Repository;
 using WebApiDB;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<ApplicationContext>(options =>
                 options.UseNpgsql(connectionString));
+builder.Services.AddTransient<IRequestRepository, RequestReposytory>();
 builder.Services.AddControllers(options =>
 {
     options.InputFormatters.Insert(0, MyJPIF.GetJsonPatchInputFormatter());

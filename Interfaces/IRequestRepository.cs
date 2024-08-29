@@ -2,7 +2,7 @@
 
 namespace Warehouse.Interfaces
 {
-    public interface IRequstRepository
+    public interface IRequestRepository
     {
         public Task<Request> GetAsync(int id);
         public Task Delete(Request request);
